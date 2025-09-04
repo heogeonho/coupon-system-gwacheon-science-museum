@@ -51,16 +51,15 @@ public class DailyStatsEntity {
 	/* --- 도메인 메서드 --- */
 
 	/**
-	 * 발급 카운터를 1 증가시키고, 증가된 값을 반환합니다.
-	 * (capacity 초과 시 예외 발생 → 서비스에서 409 SOLD_OUT으로 매핑)
+	 * issued를 capacity까지만 1 증가(클램프). 초과 시 예외 없이 현 상태 유지.
+	 * @return 증가 후(또는 유지된) issued 값
 	 */
-	public int increaseIssuedAndGetNext(int capacity) {
-		int next = (issued == null ? 0 : issued) + 1;
-		if (next > capacity) {
-			throw new IllegalStateException("SOLD_OUT");
+	public int increaseIssuedUpTo(int capacity) {
+		if (this.issued == null) this.issued = 0;
+		if (this.issued < capacity) {
+			this.issued += 1;
 		}
-		this.issued = next;
-		return next;
+		return this.issued; // 0..capacity
 	}
 
 	/** 방문 수 증가 (음수 무시) */
