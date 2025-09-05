@@ -65,11 +65,11 @@ public class DailyVisitHourlyEntity {
 		this.visits = (this.visits == null ? 0 : this.visits) + Math.max(delta, 0);
 	}
 
-	public static DailyVisitHourlyEntity initOf(LocalDate date, int hour) {
+	public static DailyVisitHourlyEntity ofFirstVisit(LocalDate date, int hour) {
 		return DailyVisitHourlyEntity.builder()
 			.visitDate(date)
 			.hour(hour)
-			.visits(0)
+			.visits(1)
 			.build();
 	}
 
