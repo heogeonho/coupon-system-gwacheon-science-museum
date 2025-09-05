@@ -19,14 +19,6 @@ public class DailyStatsEntity {
 	@Column(name = "stats_date", nullable = false)
 	private LocalDate date;
 
-	/** 방문 수 (기본 0) */
-	@Column(name = "visits", nullable = false)
-	private Integer visits;
-
-	/** 지도 찾기 수 (보류 시 null 허용) */
-	@Column(name = "map_searches")
-	private Integer mapSearches;
-
 	/** 당일 누적 발급 수 (쿠폰 번호는 issued 증가 후 값) */
 	@Column(name = "issued", nullable = false)
 	private Integer issued;
@@ -38,7 +30,6 @@ public class DailyStatsEntity {
 	/* --- JPA 라이프사이클 --- */
 	@PrePersist
 	void onCreate() {
-		if (visits == null) visits = 0;
 		if (issued == null) issued = 0;
 		if (updatedAt == null) updatedAt = LocalDateTime.now();
 	}
@@ -62,25 +53,12 @@ public class DailyStatsEntity {
 		return this.issued; // 0..capacity
 	}
 
-	/** 방문 수 증가 (음수 무시) */
-	public void increaseVisits(int delta) {
-		this.visits = (this.visits == null ? 0 : this.visits) + Math.max(delta, 0);
-	}
-
-	/** 지도 찾기 수 증가 (음수 무시) */
-	public void increaseMapSearches(int delta) {
-		if (this.mapSearches == null) this.mapSearches = 0;
-		this.mapSearches += Math.max(delta, 0);
-	}
-
 	/* --- 정적 팩토리 --- */
 
-	/** 해당 날짜의 기본값(방문=0, issued=0, mapSearches=null)으로 초기화 */
+	/** 해당 날짜의 기본값(issued=0)으로 초기화 */
 	public static DailyStatsEntity initOf(LocalDate date) {
 		return DailyStatsEntity.builder()
 			.date(date)
-			.visits(0)
-			.mapSearches(null)
 			.issued(0)
 			.build();
 	}
