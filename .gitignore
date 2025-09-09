@@ -89,10 +89,6 @@ surefire-reports/
 # Spring Boot
 spring.log
 *.h2.db
-application.yml
-application-*.yml
-application.properties
-application-*.properties
 
 # VS Code
 .vscode/
