@@ -6,24 +6,29 @@ import com.gwacheon.naturemuseum.entity.DailyStatsEntity;
 import com.gwacheon.naturemuseum.repository.CouponRepository;
 import com.gwacheon.naturemuseum.repository.DailyStatsRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Service
 @RequiredArgsConstructor
 public class CouponService {
 
 	private static final int DAILY_CAPACITY = 200;
+	private static final ZoneId KST = ZoneId.of("Asia/Seoul");
 
 	private final CouponRepository couponRepository;
 	private final DailyStatsRepository dailyStatsRepository;
 
 	@Transactional
 	public IssueCouponResponse issueToday() {
-		LocalDate today = LocalDate.now();
+		LocalDateTime now = LocalDateTime.now(KST);
+		LocalDate today = now.toLocalDate();
 
 		// 오늘 row 없으면 생성(issued=0)
 		DailyStatsEntity stats = dailyStatsRepository.findById(today)
