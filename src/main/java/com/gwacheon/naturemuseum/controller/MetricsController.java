@@ -1,5 +1,6 @@
 package com.gwacheon.naturemuseum.controller;
 
+import com.gwacheon.naturemuseum.controller.dto.VisitRequest;
 import com.gwacheon.naturemuseum.service.MetricsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +14,8 @@ public class MetricsController {
 	private final MetricsService metricsService;
 
 	@PostMapping("/visit")
-	public ResponseEntity<Void> visit() {
-		metricsService.recordVisit();
-		return ResponseEntity.accepted().build(); // 202
+	public ResponseEntity<Void> visit(@RequestBody VisitRequest request) {
+		metricsService.recordVisit(request.getHall());
+		return ResponseEntity.accepted().build();
 	}
 }

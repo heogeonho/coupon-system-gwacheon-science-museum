@@ -5,14 +5,15 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Builder
 @AllArgsConstructor
 public class DailyStatsResponse {
 	private String date;
-	private int visits;           // 일 총합 = hourly 합(9..18)
-	private List<HourBucket> hourly;
+	private Map<String, Integer> visits;
+	private Map<String, List<HourBucket>> hourly;
 	private Coupons coupons;
 
 	@Getter

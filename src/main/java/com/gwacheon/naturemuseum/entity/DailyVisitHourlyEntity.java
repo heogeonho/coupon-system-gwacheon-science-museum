@@ -1,10 +1,10 @@
 package com.gwacheon.naturemuseum.entity;
 
-	import jakarta.persistence.*;
-	import lombok.*;
+import jakarta.persistence.*;
+import lombok.*;
 
-	import java.time.LocalDate;
-	import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -15,12 +15,13 @@ package com.gwacheon.naturemuseum.entity;
 	name = "daily_visit_hourly",
 	uniqueConstraints = {
 		@UniqueConstraint(
-			name = "uk_visit_date_hour",
-			columnNames = {"visit_date", "hour"}
+			name = "uk_visit_date_hour_hall",
+			columnNames = {"visit_date", "hour", "hall"}
 		)
 	},
 	indexes = {
-		@Index(name = "idx_visit_date", columnList = "visit_date")
+		@Index(name = "idx_visit_date", columnList = "visit_date"),
+		@Index(name = "idx_visit_date_hall", columnList = "visit_date, hall")
 	}
 )
 public class DailyVisitHourlyEntity {
@@ -40,6 +41,10 @@ public class DailyVisitHourlyEntity {
 	/** 몇 시대(예: 9 → 09:00~09:59) */
 	@Column(name = "hour", nullable = false)
 	private Integer hour;
+
+	/** 전시관 구분 (A, B, C, D 등) */
+	@Column(name = "hall", length = 1, nullable = false)
+	private String hall;
 
 	/** 해당 시간대 방문자 수 */
 	@Column(name = "visits", nullable = false)
@@ -65,10 +70,14 @@ public class DailyVisitHourlyEntity {
 		this.visits = (this.visits == null ? 0 : this.visits) + Math.max(delta, 0);
 	}
 
-	public static DailyVisitHourlyEntity ofFirstVisit(LocalDate date, int hour) {
+	public static DailyVisitHourlyEntity ofFirstVisit(LocalDate date, int hour, String hall) {
+		validateHour(hour);
+		validateHall(hall);
+
 		return DailyVisitHourlyEntity.builder()
 			.visitDate(date)
 			.hour(hour)
+			.hall(hall)
 			.visits(1)
 			.build();
 	}
@@ -76,6 +85,12 @@ public class DailyVisitHourlyEntity {
 	private static void validateHour(int hour) {
 		if (hour < HOUR_START || hour > HOUR_END) {
 			throw new IllegalArgumentException("hour must be between 9 and 18: " + hour);
+		}
+	}
+
+	private static void validateHall(String hall) {
+		if (hall == null || hall.trim().isEmpty() || hall.length() != 1) {
+			throw new IllegalArgumentException("hall must be a single character: " + hall);
 		}
 	}
 }
