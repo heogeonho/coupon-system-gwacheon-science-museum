@@ -33,11 +33,11 @@ public class CouponEntity {
 	@Column(name = "coupon_id")
 	private Long id;
 
-	/** 발급 기준 날짜(하루 200장 정책 단위) */
+	/** 발급 기준 날짜(하루 150장 정책 단위) */
 	@Column(name = "issue_date", nullable = false)
 	private LocalDate issueDate;
 
-	/** 당일 발급 번호(1..200) */
+	/** 당일 발급 번호(1..150) */
 	@Column(name = "number", nullable = false)
 	private Integer number;
 
@@ -55,7 +55,7 @@ public class CouponEntity {
 	/**
 	 * 정적 팩토리 메서드
 	 * @param issueDate 발급 날짜
-	 * @param number    당일 발급 번호(1~200)
+	 * @param number    당일 발급 번호(1~150)
 	 */
 	public static CouponEntity of(LocalDate issueDate, int number) {
 		return CouponEntity.builder()

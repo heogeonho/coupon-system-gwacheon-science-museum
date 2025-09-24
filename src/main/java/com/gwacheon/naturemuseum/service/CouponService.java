@@ -20,7 +20,7 @@ import java.time.ZoneId;
 @RequiredArgsConstructor
 public class CouponService {
 
-	private static final int DAILY_CAPACITY = 200;             // 하루 최대 발급 수량
+	private static final int DAILY_CAPACITY = 150;             // 하루 최대 발급 수량
 	private static final ZoneId KST = ZoneId.of("Asia/Seoul"); // 한국 시간대 기준
 
 	private final CouponRepository couponRepository;
@@ -28,7 +28,7 @@ public class CouponService {
 
 	/**
 	 * 오늘 날짜 기준으로 쿠폰 1장을 발급한다.
-	 * - 발급 가능하면 번호(1~200)를 새로 할당
+	 * - 발급 가능하면 번호(1~150)를 새로 할당
 	 * - 이미 매진 상태라면 발급 없이 soldOut=true로 응답
 	 */
 	@Transactional
