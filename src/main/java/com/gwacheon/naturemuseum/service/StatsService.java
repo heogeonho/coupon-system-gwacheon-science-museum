@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class StatsService {
 
-	private static final int DAILY_CAPACITY = 150;
+	private static final int DAILY_CAPACITY = 100;
 	private static final int HOUR_START = 9;
 	private static final int HOUR_END = 18;
 	private static final List<String> HALLS = List.of("A", "B", "C", "D");

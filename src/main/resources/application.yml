@@ -13,8 +13,6 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        format_sql: true
-        show_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
 
   # 로컬만 사용(.env 존재 시)
