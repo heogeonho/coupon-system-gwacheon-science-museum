@@ -25,7 +25,7 @@ public class StatsService {
 	private static final int DAILY_CAPACITY = 100;
 	private static final int HOUR_START = 9;
 	private static final int HOUR_END = 18;
-	private static final List<String> HALLS = List.of("A", "B", "C", "D");
+	private static final List<String> HALLS = List.of("A", "B", "C", "D", "E");
 
 	private final DailyStatsRepository dailyStatsRepository;
 	private final DailyVisitHourlyRepository dailyVisitHourlyRepository;
