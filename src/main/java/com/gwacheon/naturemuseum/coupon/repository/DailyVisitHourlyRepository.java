@@ -1,6 +1,6 @@
-package com.gwacheon.naturemuseum.repository;
+package com.gwacheon.naturemuseum.coupon.repository;
 
-import com.gwacheon.naturemuseum.entity.DailyVisitHourlyEntity;
+import com.gwacheon.naturemuseum.coupon.entity.DailyVisitHourlyEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

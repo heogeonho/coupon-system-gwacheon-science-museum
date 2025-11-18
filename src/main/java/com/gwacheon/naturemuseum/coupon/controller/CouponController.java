@@ -1,8 +1,8 @@
-package com.gwacheon.naturemuseum.controller;
+package com.gwacheon.naturemuseum.coupon.controller;
 
-import com.gwacheon.naturemuseum.controller.dto.IssueCouponResponse;
+import com.gwacheon.naturemuseum.coupon.controller.dto.IssueCouponResponse;
 import com.gwacheon.naturemuseum.global.response.ApiResponse;
-import com.gwacheon.naturemuseum.service.CouponService;
+import com.gwacheon.naturemuseum.coupon.service.CouponService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

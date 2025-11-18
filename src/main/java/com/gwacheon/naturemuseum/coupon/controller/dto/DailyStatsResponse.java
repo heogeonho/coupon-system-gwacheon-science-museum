@@ -1,4 +1,4 @@
-package com.gwacheon.naturemuseum.controller.dto;
+package com.gwacheon.naturemuseum.coupon.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

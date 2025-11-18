@@ -1,7 +1,7 @@
-package com.gwacheon.naturemuseum.service;
+package com.gwacheon.naturemuseum.coupon.service;
 
-import com.gwacheon.naturemuseum.entity.DailyVisitHourlyEntity;
-import com.gwacheon.naturemuseum.repository.DailyVisitHourlyRepository;
+import com.gwacheon.naturemuseum.coupon.entity.DailyVisitHourlyEntity;
+import com.gwacheon.naturemuseum.coupon.repository.DailyVisitHourlyRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.gwacheon.naturemuseum.entity;
+package com.gwacheon.naturemuseum.coupon.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

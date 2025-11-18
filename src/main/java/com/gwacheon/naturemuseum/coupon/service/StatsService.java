@@ -1,4 +1,4 @@
-package com.gwacheon.naturemuseum.service;
+package com.gwacheon.naturemuseum.coupon.service;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -7,12 +7,12 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gwacheon.naturemuseum.controller.dto.DailyStatsResponse;
-import com.gwacheon.naturemuseum.controller.dto.DailyStatsResponse.HourBucket;
-import com.gwacheon.naturemuseum.entity.DailyStatsEntity;
-import com.gwacheon.naturemuseum.entity.DailyVisitHourlyEntity;
-import com.gwacheon.naturemuseum.repository.DailyStatsRepository;
-import com.gwacheon.naturemuseum.repository.DailyVisitHourlyRepository;
+import com.gwacheon.naturemuseum.coupon.controller.dto.DailyStatsResponse;
+import com.gwacheon.naturemuseum.coupon.controller.dto.DailyStatsResponse.HourBucket;
+import com.gwacheon.naturemuseum.coupon.entity.DailyStatsEntity;
+import com.gwacheon.naturemuseum.coupon.entity.DailyVisitHourlyEntity;
+import com.gwacheon.naturemuseum.coupon.repository.DailyStatsRepository;
+import com.gwacheon.naturemuseum.coupon.repository.DailyVisitHourlyRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,10 +1,10 @@
-package com.gwacheon.naturemuseum.service;
+package com.gwacheon.naturemuseum.coupon.service;
 
-import com.gwacheon.naturemuseum.controller.dto.IssueCouponResponse;
-import com.gwacheon.naturemuseum.entity.CouponEntity;
-import com.gwacheon.naturemuseum.entity.DailyStatsEntity;
-import com.gwacheon.naturemuseum.repository.CouponRepository;
-import com.gwacheon.naturemuseum.repository.DailyStatsRepository;
+import com.gwacheon.naturemuseum.coupon.controller.dto.IssueCouponResponse;
+import com.gwacheon.naturemuseum.coupon.entity.CouponEntity;
+import com.gwacheon.naturemuseum.coupon.entity.DailyStatsEntity;
+import com.gwacheon.naturemuseum.coupon.repository.CouponRepository;
+import com.gwacheon.naturemuseum.coupon.repository.DailyStatsRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,6 +1,6 @@
-package com.gwacheon.naturemuseum.repository;
+package com.gwacheon.naturemuseum.coupon.repository;
 
-import com.gwacheon.naturemuseum.entity.DailyStatsEntity;
+import com.gwacheon.naturemuseum.coupon.entity.DailyStatsEntity;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
