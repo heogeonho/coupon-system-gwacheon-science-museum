@@ -1,5 +1,6 @@
 package com.gwacheon.naturemuseum.reservation.entity;
 
+import com.gwacheon.naturemuseum.global.converter.PhoneNumberConverter;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -39,6 +40,7 @@ public class ReservationEntity {
 	@Column(name = "name", nullable = false)
 	private String name;
 
+	@Convert(converter = PhoneNumberConverter.class)
 	@Column(name = "phone_number", nullable = false)
 	private String phoneNumber;
 
