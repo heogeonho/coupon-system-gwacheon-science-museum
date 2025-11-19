@@ -18,3 +18,7 @@ spring:
   # 로컬만 사용(.env 존재 시)
   config:
     import: optional:file:.env[.properties]
+
+# 암호화 설정
+crypto:
+  secret-key: ${CRYPTO_SECRET_KEY}
